@@ -27,6 +27,7 @@ Use this for start the bot!
 **Don't forget to enable the "Use Application Commands" permission when you invite your bot**
 
 There is an example of link with the permission included:
+
 https://discord.com/oauth2/authorize?client_id=INSERT_CLIENT_ID_HERE&scope=bot&permissions=2147483648
 
 ## Commands
