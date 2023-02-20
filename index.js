@@ -12,7 +12,7 @@ client.charactersPath = path.join(__dirname, 'characters.txt');
 (async() => {
     await client.login(client.config.botToken);
     try {
-        if(client.config.sessionAIToken)
+        if(client.config.sessionAIToken.length > 0)
             await client.characterAI.authenticateWithToken(client.config.sessionAIToken);
         else
             await client.characterAI.authenticateAsGuest();
