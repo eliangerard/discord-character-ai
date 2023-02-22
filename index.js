@@ -1,6 +1,5 @@
 const CharacterAI = require('node_characterai');
 const fs = require('node:fs');
-const fetch = require('node:fs');
 const path = require('node:path');
 const fetch = require('node-fetch');
 const { Client, Collection, GatewayIntentBits } = require('discord.js');
