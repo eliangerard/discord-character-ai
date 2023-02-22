@@ -2,14 +2,15 @@
 A discord bot for Character AI integration
 
 # Instructions
-Right now, the guest mode is not working, at least when I'm developing this bot, but if you wanna try, leave empty the **sessionAIToken** at config.json and it will be enabled automatically, to get a session token you must to create an account at [character.ai](https://beta.character.ai/), it last at least 1 month so you don't have to worry a lot if it expires, to get it:
-+ Login at [character.ai](https://beta.character.ai/) 
-+ Press F12 and go to **Application** section
-+ Search for **Local Storage** and look for the element with the tag *@@auth0spajs@@*
-+ Open the *body* and copy the whole *"access_token"*, it's pretty large, paste it on the config.json and that's it!
++ For Authenticated mode:
+  + Login at [character.ai](https://beta.character.ai/) 
+  + Press F12 and go to **Application** section
+  + Search for **Local Storage** and look for the element with the tag *@@auth0spajs@@*
+  + Open the *body* and copy the whole *"access_token"*, it's pretty large, paste it on the config.json and that's it!
++ For guest mode just leave the sessionAIToken field **empty** (This mode has a messages hard limit)
 
 ## Config
-The config-template.json contains everything that you need, discord bot's token and application ID, also the session token of character.ai (or empty if you want to use the guest mode, but it's maybe not working right now), fill the fields at the json and delete the "-template" part at the name of the file.
+The config-template.json contains everything that you need, discord bot's token and application ID, also the session token of character.ai (or empty if you want to use the guest mode), fill the fields at the json and delete the "-template" part at the name of the file.
 
 ## Start it
 > npm install

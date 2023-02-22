@@ -11,8 +11,7 @@ module.exports = {
 		await interaction.deferReply();
 		client.interaction = await interaction;
 
-		const chat = await client.characterAI.createOrContinueChat(client.lastChar);
-    	const response = await chat.sendAndAwaitResponse(query, true)
+    	const response = await client.chat.sendAndAwaitResponse(query, true)
 
 		interaction.editReply(response);
 	},

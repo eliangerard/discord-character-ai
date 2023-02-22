@@ -1,5 +1,6 @@
 const { SlashCommandBuilder } = require('discord.js');
 const { EmbedBuilder } = require("discord.js");
+
 module.exports = {
 	data: new SlashCommandBuilder()
 		.setName('newchat')
@@ -18,9 +19,13 @@ module.exports = {
                 char = element.substring(element.indexOf('----$')+5);
         })
 		try {
-			chat = await client.characterAI.createOrContinueChat(char);
-			const response = await chat.sendAndAwaitResponse(query, true)
+			if(char != client.lastChar)
+				client.chat = await client.characterAI.createOrContinueChat(char);
+
+			const response = await client.chat.sendAndAwaitResponse(query, true)
+			console.log(response);
 			client.lastChar = char;
+
 			interaction.editReply(response);
 		} catch(e){
 			const embed = new EmbedBuilder()
