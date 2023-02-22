@@ -16,8 +16,8 @@ client.charactersPath = path.join(__dirname, 'characters.txt');
             await client.characterAI.authenticateWithToken(client.config.sessionAIToken);
         else
             await client.characterAI.authenticateAsGuest();
-    } catch {
-        console.log("No se pudo logear a Character AI, intentalo de nuevo más tarde o revisa la expiración de tu token, suelen durar 1 mes");
+    } catch (e) {
+        console.log("No se pudo logear a Character AI, error: " + e);
     }
 })();
 
