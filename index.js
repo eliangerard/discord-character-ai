@@ -4,11 +4,17 @@ const path = require('node:path');
 
 const { Client, Collection, GatewayIntentBits } = require('discord.js');
 
-const client = new Client({ intents: [GatewayIntentBits.Guilds, GatewayIntentBits.GuildMessages, GatewayIntentBits.MessageContent] });
+const client = new Client({ intents: [
+	GatewayIntentBits.Guilds, 
+	GatewayIntentBits.GuildMessages, 
+	GatewayIntentBits.MessageContent, 
+	GatewayIntentBits.GuildMessageReactions
+]});
 
 client.characterAI = new CharacterAI();
 client.config = require("./config.json");
 client.characters = fs.readFileSync('./characters.txt', 'utf8').split('\n');
+client.searchedCharacters = null;
 client.charactersPath = path.join(__dirname, 'characters.txt');
 client.lastChar = null;
 client.botChannels = require("./botChannels.json");
