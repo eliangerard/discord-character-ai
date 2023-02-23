@@ -2,12 +2,16 @@ module.exports = {
 	name: 'messageCreate',
 	async execute(message, client) {
         if(client.botChannels[message.guildId] != null && !message.author.bot){
-            console.log("Mensaje recibido: "+message.content+"\n\tRespondiendo...");
+            console.log("Mensaje recibido: "+message.content);
             //Searching if the channel is already registered and updating the character
-            let channel = client.botChannels[message.guildId].find((element) => element.channelId = message.channelId);
+            let channel = client.botChannels[message.guildId].find((element) => element.channelId == message.channelId);
+            if(!channel || message.content.length == 0)
+                return;
+            console.log("\tRespondiendo...");
+            
             chat = await client.characterAI.createOrContinueChat(channel.charId);
-
 			const response = await chat.sendAndAwaitResponse(message.content, true)
+            
             message.reply(response);
         }
 	},
