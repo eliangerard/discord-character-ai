@@ -9,8 +9,13 @@ module.exports = {
 		.addStringOption(option => option.setName('char').setDescription('ID del personaje').setRequired(true))
 		.addStringOption(option => option.setName('canal').setDescription('ID del canal').setRequired(false)),
 	async execute(interaction, client) {
-		const char = interaction.options.getString('char');
+		let char = interaction.options.getString('char');
 		let canal = interaction.options.getString('canal');
+
+        client.characters.find(element => {
+            if(element.toLowerCase().includes(char.toLowerCase()))
+                char = element.substring(element.indexOf('----$')+5);
+        })
 
         client.interaction = await interaction;
 		await interaction.deferReply();
