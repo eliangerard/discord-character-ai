@@ -36,3 +36,4 @@ https://discord.com/oauth2/authorize?client_id=INSERT_CLIENT_ID_HERE&scope=bot&p
 + newchat: Start a new chat with a new Character, (char: Char ID or Name if already registered, query: Content of the chat)
 + register: Register a character with a name so you don't have to search his ID every time
 + chat: Continue the chat with the last character
++ setbotchannel: Set a dedicated character channel at your server, if you want to change the character just use the command again and it will update it
