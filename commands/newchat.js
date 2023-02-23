@@ -15,7 +15,7 @@ module.exports = {
 		client.interaction = await interaction;
 		
 		client.characters.find(element => {
-            if(element.includes(char))
+            if(element.toLowerCase().includes(char.toLowerCase()))
                 char = element.substring(element.indexOf('----$')+5);
         })
 		try {

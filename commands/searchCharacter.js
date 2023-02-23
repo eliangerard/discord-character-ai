@@ -24,7 +24,7 @@ module.exports = {
 		if(isGuest)
             return interaction.reply("Guest accounts cannot use the search feature");
 
-        interaction.deferReply();
+        await interaction.deferReply();
         let { characters } = await client.characterAI.searchCharacters(query);
         client.searchedCharacters = characters;
         totalPages = Math.ceil(characters.length/10);
