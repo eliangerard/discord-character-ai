@@ -9,12 +9,13 @@ module.exports = {
         .addIntegerOption(option => option.setName('option').setDescription('Opción seleccionada').setRequired(true)),
 	async execute(interaction, client) {
 		const option = interaction.options.getInteger('option');
-		
+
+        if(!client.searchedCharacters)
+            return await interaction.reply('Aún no has buscado ningún personaje con el comando /search')
         const character = client.searchedCharacters[option];
 		client.lastChar = character.external_id;
-        console.log(character);
-        console.log(`https://characterai.io/i/400/static/avatars/${character.avatar_file_name}`);
-		const embed = new EmbedBuilder()
+
+        const embed = new EmbedBuilder()
             .setTitle(`✅ Has seleccionado a ${character.participant__name}`)
             .setThumbnail(`https://characterai.io/i/400/static/avatars/${character.avatar_file_name}`)
             .setDescription(character.greeting)
