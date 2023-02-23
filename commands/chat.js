@@ -8,6 +8,7 @@ module.exports = {
 	async execute(interaction, client) {
 		const query = interaction.options.getString('query');
 		
+		if(client.lastChar == null) return interaction.editReply("Aún no has hablado con ningún personaje");
 		await interaction.deferReply();
 		client.interaction = await interaction;
 

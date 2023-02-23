@@ -9,6 +9,7 @@ client.characterAI = new CharacterAI();
 client.config = require("./config.json");
 client.characters = fs.readFileSync('./characters.txt', 'utf8').split('\n');
 client.charactersPath = path.join(__dirname, 'characters.txt');
+client.lastChar = null;
 
 (async() => {
     await client.login(client.config.botToken);
