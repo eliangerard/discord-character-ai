@@ -32,7 +32,7 @@ module.exports = {
             let alreadyExists = false;
             //Searching if the channel is already registered and updating the character
             client.botChannels[interaction.guildId].forEach((element) => {
-                if(element.channelId = registro.channelId){
+                if(element.channelId == registro.channelId){
                     element.charId = registro.charId;
                     alreadyExists = true;
                 }
@@ -44,8 +44,8 @@ module.exports = {
             client.botChannels[interaction.guildId] = new Array();
             client.botChannels[interaction.guildId][0] = registro;
         } 
-
-        fs.writeFile("botChannels.json", JSON.stringify(client.botChannels), 'utf8', function (err) {
+        console.log(client.botChannels);
+        fs.writeFile(client.botChannelsPath, JSON.stringify(client.botChannels), 'utf8', function (err) {
             if (err) {
                 console.log("An error occured while writing JSON Object to File.");
                 return console.log(err);

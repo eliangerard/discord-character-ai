@@ -15,9 +15,11 @@ client.characterAI = new CharacterAI();
 client.config = require("./config.json");
 client.characters = fs.readFileSync('./characters.txt', 'utf8').split('\n');
 client.searchedCharacters = null;
-client.charactersPath = path.join(__dirname, 'characters.txt');
 client.lastChar = null;
 client.botChannels = require("./botChannels.json");
+
+client.botChannelsPath = path.join(__dirname, 'botChannels.json'); 
+client.charactersPath = path.join(__dirname, 'characters.txt');
 
 (async() => {
     await client.login(client.config.botToken);
