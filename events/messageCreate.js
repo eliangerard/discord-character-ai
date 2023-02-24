@@ -1,6 +1,7 @@
 module.exports = {
 	name: 'messageCreate',
 	async execute(message, client) {
+        if(message.content.startsWith(client.config.noDetectionPrefix)) return;
         if(client.botChannels[message.guildId] != null && !message.author.bot){
             console.log("Mensaje recibido: "+message.content);
             //Searching if the channel is already registered and updating the character

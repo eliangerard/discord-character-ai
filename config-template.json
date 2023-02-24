@@ -1,5 +1,6 @@
 {
     "botAppID": "",
     "botToken": "",
-    "sessionAIToken": ""
+    "sessionAIToken": "",
+    "noDetectionPrefix": "*"
 }
