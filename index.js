@@ -56,5 +56,12 @@ eventFiles.forEach(file => {
 		client.on(event.name, (...args) => event.execute(...args, client));
 	}
 });
-
-
+/**
+ * @param {string} query Name or Character ID to search at local registered characters
+ */
+client.findCharacter = (query) => {
+	return client.characters.find(element => {
+		if(element.toLowerCase().includes(query.toLowerCase()))
+			char = element.substring(element.indexOf('----$')+5);
+	})
+}
