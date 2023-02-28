@@ -10,7 +10,6 @@ module.exports = {
 	async execute(interaction, client) {
 		let char = interaction.options.getString('char');
 		const query = interaction.options.getString('query');
-		let alreadyID = false;
 		await interaction.deferReply();
 		client.interaction = await interaction;
 		
@@ -23,10 +22,10 @@ module.exports = {
 				client.chat = await client.characterAI.createOrContinueChat(char);
 
 			const response = await client.chat.sendAndAwaitResponse(query, true)
-			console.log(response);
+			console.log(await response.getMessage());
 			client.lastChar = char;
 
-			interaction.editReply(response);
+			interaction.editReply(response.text);
 		} catch(e){
 			const embed = new EmbedBuilder()
                 .setTitle(`❌ Error`)
