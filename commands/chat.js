@@ -12,8 +12,8 @@ module.exports = {
 		await interaction.deferReply();
 		client.interaction = await interaction;
 
-    	const response = await client.chat.sendAndAwaitResponse(query, true)
+    	const { text } = await client.chat.sendAndAwaitResponse(query, true);
 
-		interaction.editReply(response);
+		interaction.editReply(text);
 	},
 };
