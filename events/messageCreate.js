@@ -11,9 +11,9 @@ module.exports = {
             console.log("\tRespondiendo...");
             
             chat = await client.characterAI.createOrContinueChat(channel.charId);
-			const response = await chat.sendAndAwaitResponse(message.content, true)
+			const { text } = await chat.sendAndAwaitResponse(message.content, true)
             
-            message.reply(response);
+            message.reply(text);
         }
 	},
 };
